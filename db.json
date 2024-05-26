@@ -1,0 +1,60 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "title": "Organic Avocado",
+      "brand": "Nature's Harvest",
+      "price": 2.99,
+      "description": "Fresh and ripe organic avocado, perfect for salads, sandwiches, and guacamole.",
+      "image_url": "https://images.unsplash.com/photo-1601039641847-7857b994d704?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": "2",
+      "title": "Organic Chicken Breast",
+      "brand": "Farm Fresh Organics",
+      "price": 6.49,
+      "description": "Tender and juicy organic chicken breast, free from antibiotics and hormones.",
+      "image_url": "https://images.unsplash.com/photo-1624364543842-b0472614eb68?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": "3",
+      "title": "Organic Quinoa",
+      "brand": "Harvest Gold",
+      "price": 4.99,
+      "description": "Nutritious organic quinoa, rich in protein and fiber, perfect for salads and pilafs.",
+      "image_url": "https://plus.unsplash.com/premium_photo-1664476002571-ead0cbfc6d74?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": "4",
+      "title": "Organic Kale",
+      "brand": "Green Garden",
+      "price": 3.49,
+      "description": "Fresh and vibrant organic kale, packed with vitamins and minerals, ideal for salads and smoothies.",
+      "image_url": "https://images.unsplash.com/photo-1593352769539-d7be34841f51?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": "5",
+      "title": "Organic Greek Yogurt",
+      "brand": "Protein Plus",
+      "price": 2.79,
+      "description": "Creamy and tangy organic Greek yogurt, high in protein and probiotics.",
+      "image_url": "https://images.unsplash.com/photo-1562114808-b4b33cf60f4f?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": "6",
+      "title": "Organic Whole Wheat Bread",
+      "brand": "Baker's Choice",
+      "price": 3.29,
+      "description": "Wholesome and hearty organic whole wheat bread, baked fresh daily.",
+      "image_url": "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8V2hlYXQlMjBCcmVhZHxlbnwwfHwwfHx8MA%3D%3D"
+    },
+    {
+      "id": "7",
+      "title": "Organic Mixed Berries",
+      "brand": "Berry Bliss",
+      "price": 5.99,
+      "description": "A delicious blend of organic strawberries, blueberries, raspberries, and blackberries, perfect for smoothies and desserts.",
+      "image_url": "https://images.unsplash.com/photo-1466065478348-0b967011f8e0?q=80&w=2063&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    }
+  ]
+}
