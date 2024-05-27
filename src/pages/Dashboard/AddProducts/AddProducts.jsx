@@ -17,7 +17,7 @@ const AddProducts = () => {
     await fetch("http://localhost:3000/products/", {
       method: "POST",
       headers: {
-        "Content-Type": "app lication/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     })
