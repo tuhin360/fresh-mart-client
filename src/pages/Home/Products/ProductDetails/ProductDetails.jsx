@@ -7,11 +7,11 @@ const ProductDetails = () => {
   const { brand, description, image_url, price, title } = product;
 
   return (
-    <div className="my-32 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
-        <div className="flex flex-col lg:flex-row items-center lg:items-start">
+    <div className="mt-20 md:mt-32 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mb-20">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start ">
           <img
-            className="w-full lg:w-1/2 object-cover rounded-lg shadow-md"
+            className="w-full lg:w-1/2 object-cover rounded-lg shadow-md mt-10 md:mt-0"
             src={image_url}
             alt={title}
           />

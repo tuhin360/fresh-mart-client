@@ -16,7 +16,7 @@ const SingleProductCardDashboard = ({ product, onDelete }) => {
   };
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center p-4">
       <div className="card w-full sm:w-80 md:w-72 lg:w-80 bg-base-100 shadow-xl">
         <figure className="px-4 pt-4">
           <img
@@ -30,19 +30,25 @@ const SingleProductCardDashboard = ({ product, onDelete }) => {
           <h3 className="text-sm font-semibold">{brand}</h3>
           <p className="text-xl font-bold text-lime-600">${price}</p>
           <p className="text-sm text-gray-500">{description}</p>
-          <div className="card-actions justify-end">
-            <button className="btn bg-lime-500 hover:bg-lime-600 text-white transition duration-200">
-              <NavLink to={`/products/${id}`}>See Details</NavLink>
-            </button>
-
-            <button className="btn bg-blue-500 hover:bg-blue-600 text-white transition duration-200">
-              <NavLink to={`/products/${id}`}>Edit</NavLink>
-            </button>
+          <div className="card-actions flex flex-col md:flex-row  gap-2 mt-4">
+            <NavLink to={`/products/${id}`} className="w-full md:w-auto">
+              <button className="btn bg-lime-500 hover:bg-lime-600 text-white transition duration-200 w-full">
+                See Details
+              </button>
+            </NavLink>
+            <NavLink
+              to={`edit-products/${id}`}
+              className="w-full md:w-auto"
+            >
+              <button className="btn bg-blue-500 hover:bg-blue-600 text-white transition duration-200 w-full">
+                Edit
+              </button>
+            </NavLink>
             <button
               onClick={handleDelete}
-              className="btn bg-red-500 hover:bg-red-600 text-white transition duration-200"
+              className="btn bg-red-500 hover:bg-red-600 text-white transition duration-200 w-full md:w-auto"
             >
-              <NavLink to={`/products/${id}`}>Delete</NavLink>
+              Delete
             </button>
           </div>
         </div>

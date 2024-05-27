@@ -9,6 +9,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import ProductDetails from "../pages/Home/Products/ProductDetails/ProductDetails";
 import AllProducts from "../pages/Dashboard/AllProducts/AllProducts";
 import AddProducts from "../pages/Dashboard/AddProducts/AddProducts";
+import EditProducts from "../pages/Dashboard/EditProducts/EditProducts";
 
 export const router = createBrowserRouter([
   {
@@ -49,6 +50,12 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/add-products",
         element: <AddProducts/>
+      },
+      {
+        path: "all-products/edit-products/:id",
+        element:  <EditProducts/>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/products/${params.id}`),
       },
     ],
   },

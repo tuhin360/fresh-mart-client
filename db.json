@@ -12,7 +12,7 @@
       "id": "2",
       "title": "Organic Chicken Breast",
       "brand": "Farm Fresh Organics",
-      "price": 6.49,
+      "price": "8.50",
       "description": "Tender and juicy organic chicken breast, free from antibiotics and hormones.",
       "image_url": "https://images.unsplash.com/photo-1624364543842-b0472614eb68?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
@@ -44,7 +44,7 @@
       "id": "6",
       "title": "Organic Whole Wheat Bread",
       "brand": "Baker's Choice",
-      "price": 3.29,
+      "price": "3.50",
       "description": "Wholesome and hearty organic whole wheat bread, baked fresh daily.",
       "image_url": "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8V2hlYXQlMjBCcmVhZHxlbnwwfHwwfHx8MA%3D%3D"
     },

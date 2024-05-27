@@ -5,9 +5,9 @@ const DashboardLayout = () => {
   return (
     <div className="min-h-screen grid grid-cols-12">
       {/* Sidebar */}
-      <div className="col-span-12 lg:col-span-2 bg-gray-900 text-white p-4 lg:p-8 flex flex-col ">
+      <div className="col-span-12 lg:col-span-2 bg-gray-900 text-white p-10 lg:p-8 flex flex-col ">
         <h2 className="text-3xl font-bold mb-8">Dashboard</h2>
-        <ul className="space-y-4">
+        <ul className="space-y-4 ">
           <li>
             <NavLink
               to="/dashboard"
@@ -67,7 +67,7 @@ const DashboardLayout = () => {
         </ul>
       </div>
       {/* Main Content */}
-      <div className="col-span-12 lg:col-span-10 bg-gray-100 p-4 lg:p-8">
+      <div className="col-span-12 lg:col-span-10 bg-gray-100 p-4 lg:p-8s">
         <Outlet />
       </div>
     </div>
