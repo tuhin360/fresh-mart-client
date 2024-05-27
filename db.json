@@ -55,6 +55,22 @@
       "price": 5.99,
       "description": "A delicious blend of organic strawberries, blueberries, raspberries, and blackberries, perfect for smoothies and desserts.",
       "image_url": "https://images.unsplash.com/photo-1466065478348-0b967011f8e0?q=80&w=2063&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": "8",
+      "title": "Honey",
+      "brand": "Pran",
+      "price": "500",
+      "description": "asdokkansdc",
+      "image_url": "https://images.unsplash.com/photo-1622448559300-6df8495a1574?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fGhvbmV5fGVufDB8fDB8fHww"
+    },
+    {
+      "id": "9",
+      "title": "Honey2",
+      "brand": "Pran",
+      "price": "5005",
+      "description": "asdokkansdcasdfaew",
+      "image_url": "https://images.unsplash.com/photo-1641878067318-1d1f79a77785?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fGhvbmV5fGVufDB8fDB8fHww"
     }
   ]
 }
