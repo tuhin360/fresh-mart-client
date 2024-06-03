@@ -8,13 +8,13 @@ const AllProducts = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/products/")
+    fetch("http://localhost:5000/products/")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
 
   const handleDeleteProduct = (id) => {
-    setProducts(products.filter((product) => product.id !== id));
+    setProducts(products.filter((product) => product._id !== id));
   };
 
   return (
@@ -23,7 +23,7 @@ const AllProducts = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {products.map((product) => (
           <SingleProductCardDashboard
-            key={product.id}
+            key={product._id}
             product={product}
             onDelete={handleDeleteProduct}
           />

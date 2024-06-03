@@ -1,29 +1,61 @@
+import Swal from "sweetalert2";
+
 /* eslint-disable no-unused-vars */
 const AddProducts = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const form = e.target;
-    const id = form.id.value;
     const title = form.title.value;
     const brand = form.brand.value;
     const price = form.price.value;
     const description = form.description.value;
     const image_url = form.image_url.value;
 
-    const data = { id, title, brand, price, description, image_url };
+    const data = { title, brand, price, description, image_url };
     console.log(data);
 
-    await fetch("http://localhost:3000/products/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-      form.reset();
+    try {
+      const response = await fetch("http://localhost:5000/products/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log(result);
+        form.reset();
+        
+        Swal.fire({
+          title: "Success!",
+          text: "Product Added Successfully",
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
+      } else {
+        const errorResult = await response.json();
+        console.error('Error adding product:', errorResult);
+        
+        Swal.fire({
+          title: "Error!",
+          text: "Failed to add product.",
+          icon: "error",
+          confirmButtonText: "Try Again",
+        });
+      }
+    } catch (error) {
+      console.error("Error adding product:", error);
+
+      Swal.fire({
+        title: "Error!",
+        text: "There was an error adding the product.",
+        icon: "error",
+        confirmButtonText: "Try Again",
+      });
+    }
   };
 
   return (
@@ -42,6 +74,7 @@ const AddProducts = () => {
               type="text"
               name="title"
               placeholder="Title"
+              required
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-lime-500 focus:border-lime-500"
             />
           </div>
@@ -53,6 +86,7 @@ const AddProducts = () => {
               type="text"
               name="brand"
               placeholder="Brand"
+              required
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-lime-500 focus:border-lime-500"
             />
           </div>
@@ -64,6 +98,8 @@ const AddProducts = () => {
               type="number"
               name="price"
               placeholder="Price"
+              step="0.01"
+              required
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-lime-500 focus:border-lime-500"
             />
           </div>
@@ -75,6 +111,7 @@ const AddProducts = () => {
               type="text"
               name="description"
               placeholder="Description"
+              required
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-lime-500 focus:border-lime-500"
             />
           </div>
@@ -86,24 +123,14 @@ const AddProducts = () => {
               type="text"
               name="image_url"
               placeholder="Image URL"
+              required
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-lime-500 focus:border-lime-500"
             />
           </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              ID
-            </label>
-            <input
-              type="text"
-              name="id"
-              placeholder="ID"
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-lime-500 focus:border-lime-500"
-            />
-          </div>
-          <div className="md:col-span-2 flex justify-center">
+          <div className="flex justify-center col-span-2">
             <button
               type="submit"
-              className="py-2 px-4 bg-lime-500 text-white font-semibold rounded-md shadow-md hover:bg-lime-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-500  first-letter:"
+              className="py-2 px-4 w-full bg-lime-500 text-white font-semibold rounded-md shadow-md hover:bg-lime-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-500"
             >
               Add Product
             </button>

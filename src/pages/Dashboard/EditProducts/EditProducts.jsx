@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
@@ -9,7 +11,6 @@ const EditProducts = () => {
   const [title, setTitle] = useState(product.title);
   const [brand, setBrand] = useState(product.brand);
   const [price, setPrice] = useState(product.price);
-  const [id, setId] = useState(product.id);
   const [description, setDescription] = useState(product.description);
   const [image_url, setImgURL] = useState(product.image_url);
 
@@ -17,25 +18,58 @@ const EditProducts = () => {
     e.preventDefault();
 
     const form = e.target;
-    const id = form.id.value;
     const title = form.title.value;
     const brand = form.brand.value;
     const price = form.price.value;
     const description = form.description.value;
     const image_url = form.image_url.value;
 
-    const data = { id, title, brand, price, description, image_url };
-    // console.log(data);
+    const data = { title, brand, price, description, image_url };
 
-    await fetch(`http://localhost:3000/products/${product.id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+    try {
+      const response = await fetch(
+        `http://localhost:5000/products/${product._id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log(result);
+
+        Swal.fire({
+          title: "Success!",
+          text: "Product Updated Successfully",
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
+      } else {
+        // Handle non-2xx HTTP responses
+        const errorResult = await response.json();
+        console.error("Error updating product:", errorResult);
+
+        Swal.fire({
+          title: "Error!",
+          text: "Failed to update product.",
+          icon: "error",
+          confirmButtonText: "Try Again",
+        });
+      }
+    } catch (error) {
+      console.error("Error updating product:", error);
+
+      Swal.fire({
+        title: "Error!",
+        text: "There was an error updating the product.",
+        icon: "error",
+        confirmButtonText: "Try Again",
+      });
+    }
   };
 
   return (
@@ -56,6 +90,7 @@ const EditProducts = () => {
               placeholder="Title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
+              required
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-lime-500 focus:border-lime-500"
             />
           </div>
@@ -69,6 +104,7 @@ const EditProducts = () => {
               placeholder="Brand"
               value={brand}
               onChange={(e) => setBrand(e.target.value)}
+              required
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-lime-500 focus:border-lime-500"
             />
           </div>
@@ -82,6 +118,7 @@ const EditProducts = () => {
               placeholder="Price"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
+              required
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-lime-500 focus:border-lime-500"
             />
           </div>
@@ -95,6 +132,7 @@ const EditProducts = () => {
               placeholder="Description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
+              required
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-lime-500 focus:border-lime-500"
             />
           </div>
@@ -108,20 +146,7 @@ const EditProducts = () => {
               placeholder="Image URL"
               value={image_url}
               onChange={(e) => setImgURL(e.target.value)}
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-lime-500 focus:border-lime-500"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              ID
-            </label>
-            <input
-              type="text"
-              name="id"
-              placeholder="ID"
-              value={id}
-              onChange={(e) => setId(e.target.value)}
-              s
+              required
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-lime-500 focus:border-lime-500"
             />
           </div>

@@ -1,18 +1,32 @@
+import Swal from "sweetalert2";
 /* eslint-disable react/prop-types */
 import { NavLink } from "react-router-dom";
 
 const SingleProductCardDashboard = ({ product, onDelete }) => {
-  const { id, title, brand, price, description, image_url } = product;
+  const { _id, title, brand, price, description, image_url } = product;
 
   const handleDelete = async () => {
-    await fetch(`http://localhost:3000/products/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        onDelete(id);
-      });
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        await fetch(`http://localhost:5000/products/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            onDelete(_id);
+            Swal.fire("Deleted!", "Your product has been deleted.", "success");
+          });
+      }
+    });
   };
 
   return (
@@ -30,16 +44,13 @@ const SingleProductCardDashboard = ({ product, onDelete }) => {
           <h3 className="text-sm font-semibold">{brand}</h3>
           <p className="text-xl font-bold text-lime-600">${price}</p>
           <p className="text-sm text-gray-500">{description}</p>
-          <div className="card-actions flex flex-col md:flex-row  gap-2 mt-4">
-            <NavLink to={`/products/${id}`} className="w-full md:w-auto">
+          <div className="card-actions flex flex-col md:flex-row gap-2 mt-4">
+            <NavLink to={`/products/${_id}`} className="w-full md:w-auto">
               <button className="btn bg-lime-500 hover:bg-lime-600 text-white transition duration-200 w-full">
                 See Details
               </button>
             </NavLink>
-            <NavLink
-              to={`edit-products/${id}`}
-              className="w-full md:w-auto"
-            >
+            <NavLink to={`edit-products/${_id}`} className="w-full md:w-auto">
               <button className="btn bg-blue-500 hover:bg-blue-600 text-white transition duration-200 w-full">
                 Edit
               </button>
